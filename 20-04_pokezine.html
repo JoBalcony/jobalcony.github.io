@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang:"fr">
+	<head>
+		<meta charset="utf-8">
+		<title>J O B A L C O N Y</title>
+		<meta name="description" content="Jo Balcony">
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<div>
+			<p class="texte">
+				2020 - Pokézine / système de feuilletage en gif animé
+				<p class="texte-mat">
+					Papier imprimé, agrafes / Javascript & html, gifs animés.
+				</p>
+				<p class="texte-sml">
+				Mini édition à exemplaire unique réalisée à partir de pages d'un magazine jeune public datant de la sortie des premiers jeux pokémons sur game boy.
+			</br></br>
+				C'est "en même temps" un prétexte pour :
+			</br></br>
+				Le système de feuilletage en gif animé. Rendu possible par un petit bricolage combinant fonction javascript et gif animés. Chaque clic sur l'image indique au navigateur de charger l'image suivante dans une liste d'images animées. Chaque gif met en scène une page tournée. L'ensemble donnant l'impression de feuilleter le livret en cliquant.
+				</p>
+			</p>
+		</div>
+		<div class="image">
+			<img id="page" style="cursor: pointer" src="img/balcony-2020-04_pokezine_0.gif">
+		</div>
+
+		<div id="signature">
+			<a href="index.html">JO BALCONY</a>
+		</div>
+
+		<script>
+			var pokezine = [
+				'img/balcony-2020-04_pokezine_1.gif',
+				'img/balcony-2020-04_pokezine_2.gif',
+				'img/balcony-2020-04_pokezine_3.gif',
+				'img/balcony-2020-04_pokezine_4.gif',
+				'img/balcony-2020-04_pokezine_5.gif',
+				'img/balcony-2020-04_pokezine_6.gif',
+				'img/balcony-2020-04_pokezine_7.gif',
+				'img/balcony-2020-04_pokezine_8.gif',
+				'img/balcony-2020-04_pokezine_9.gif',
+				'img/balcony-2020-04_pokezine_10.gif',
+				'img/balcony-2020-04_pokezine_11.gif',
+				'img/balcony-2020-04_pokezine_12.gif',
+				'img/balcony-2020-04_pokezine_13.gif',
+				'img/balcony-2020-04_pokezine_14.gif',
+				'img/balcony-2020-04_pokezine_15.gif',
+				'img/balcony-2020-04_pokezine_16.gif',
+				'img/balcony-2020-04_pokezine_17.gif',
+				];
+			
+			var image = document.getElementById('page');
+			
+			image.onclick = function () {
+    			feuilletage();
+			}
+			
+			var cmptr=0;
+			
+			function feuilletage() {
+				image.src = pokezine[cmptr];
+				cmptr++;
+				if (cmptr == pokezine.length){
+					cmptr=0;
+				}
+			}
+		</script>  		
+
+	</body>
+</html>

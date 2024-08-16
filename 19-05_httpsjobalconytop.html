@@ -1,0 +1,489 @@
+<!doctype html>
+
+<html lang:"fr">
+	<head>
+		<meta charset="utf-8">
+		<title>J O B A L C O N Y</title>
+		<meta name="description" content="Jo Balcony">
+		<link rel="stylesheet" href="style.css">
+<!--		<script src="script.js"></script> -->
+	</head>
+
+	<body>
+		<div>
+			<p class="texte">
+					2019 - https://jobalcony.top
+			</p>
+
+			<pre><code>
+&lt;!doctype html>
+
+&lt;html lang:"fr">
+
+&lt;head>
+	&lt;meta charset="utf-8">
+	&lt;title>JO BALCONY&lt;/title>
+	&lt;meta name="description"
+		content="Bonjour et bienvenue sur le site de Jo Balcony, 
+	en suivant ce lien vous trouverez un gros smiley jaune. 
+	Un clik sur son œil gauche pour accéder à une collection d'idées, 
+	et un clik sur son œil droit pour lui faire tirer la langue et 
+	entrer en communication avec Jo Balcony - à propos du design par exemple." />
+	&lt;link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	&lt;link rel="stylesheet" href="style.css">
+&lt;!--&lt;script src="script.js">&lt;/script> -->
+&lt;/head>
+
+&lt;!--------------------------------------
+--- schémas généraux des divs du site --
+----------------------------------------
+
+----------- en mode ACCUEIL ------------
+(I) . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . B
+. . . . . . . . _ _ _ _ . . . . . . . . I
+. . . . . . _ /         \ _ . . . . . . E
+. . . . _ /                 \ _ . . . . N
+. . . /     ___         ___     \ . . . V
+. . ./     /   \       /   \     \. . . E
+. . /      ) + (       ) @ (      \ . . N
+. ./       \___/       \___/       \. . U
+. |#A          #B          #C       | . E
+. |                                 | .
+. |     _ _ _ _ _ _ _ _ _ _ _ _#D   | . W
+. |    |         titre         |    | . E
+. .\    \       _ _ _ _       /    /  . L
+. . \     \    |       |    /     / . . C
+. . .\      \ _| mail  |_ /      /. . . O
+. . . \        |       |        / . . . M
+. . . .\_ _     \_____/#E   _ _/. . . . E
+. . . . . .\_ _         _ _/. . . . . .
+. . . . . . . .\_ _ _ _/. . . . . . . . (:
+. . . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . :)
+
+#A : div mère formant fond et contenant les autres
+> hoover sur #C tire la langue #E
+> clik sur #B déploie le mode galerie (II) :
+
+------------ en mode GALERIE ------------
+(II). . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . . . .
+. .___________________________________. .
+. | ._____________. ._______________. | .
+. | |    titre    | |               | | .
+. | |_#D__________| |               | | .
+. | ._____________. |               | | .
+. | |             | |               | | .
+. | |             | |     cadre     | | .
+. | |             | |               | | .
+. | |             | |               | | .
+. | |             | |     de la     | | .
+. | |    liste    | |               | | .
+. | |     des     | |               | | .
+. | |    trucs    | |    galerie    | | .
+. | |             | |               | | .
+. | |             | |               | | .
+. | |             | |   (i-frame)   | | .
+. | |             | |               | | .
+. | |             | |               | | .
+. | |             | |               | | .
+. | |_#C__________| |_#B____________| | .
+. |_________#A________________________| .
+. . . . . . . . . . . . . . . . . . . . .
+
+> clik sur #D déploie la mode accueil (I)
+
+-------------------------------------->
+
+&lt;body>
+&lt;!-------------------------------------------------------------------------------
+		 	#A : DIVISION MÈRE FORMANT FOND
+#A-I  > tete = de couleur jaune, elle forme la face du smiley du mode ACCUEIL.
+#A-II > fond = de couleur gris clair, il forme le fond du mode GALERIE.
+----------------------------------------------------------------------------------->
+&lt;div id="contetener" class="t-1s">
+&lt;!-------------------------------------------------------------------------------
+		 	#B : ŒIL + &lt;> CADRE GALERIE
+#B-I  > oeil gauche "+"
+#B-II > cadre galerie
+------------------------------------------------------------------------------------
+Cette div change de forme lors du passage du mode accueil au mode galerie.
+Cette div contient deux div qui s'affichent ou non selon le mode accueil ou galerie.
+-->
+&lt;div id="oeil-col" class="t-1s">
+&lt;!--  contenu #B-I  ----------------------------->
+	&lt;div id="oeil-col-ouvert" class="t-05s"
+	onclick="document.getElementById('contetener').id='fondtainer',
+		document.getElementById('oeil-col').id='cadre-visu',
+		document.getElementById('oeil-mail').id='cadre-liste',
+		document.getElementById('oeil-mail-ouvert').id='oeil-mail-ferme',
+		document.getElementById('oeil-col-ouvert').id='oeil-col-ferme',
+		document.getElementById('divliste-off').id='divliste-on',
+		document.getElementById('divimage-off').id='divimage-on',
+		document.getElementById('bouche-titre').id='courtitre',
+		document.getElementById('tirlalangue').id='mail'"
+	onmouseover="document.getElementById('oeil-col-ouvert').style=
+		'background-color: lime'"
+	onmouseleave="document.getElementById('oeil-col-ouvert').style=
+		'background-color: none'">
+			&lt;h1>+&lt;/h1>
+	&lt;/div>
+&lt;!--  contenu #B-II  ---------------------------->
+	&lt;div id="divimage-off" class="t-1s">
+		&lt;iframe id="frame" src="" name="framax" title="Jo Balcony's gallery" >
+				&lt;p>Your browser does not support iframes.
+				Better find another computer, sorry.&lt;/p>
+		&lt;/iframe>
+	&lt;/div>
+&lt;/div>
+&lt;!-------------------------------------------------------------------------------
+		 	#C : ŒIL @ &lt;> CADRE LISTE TRUCS
+#C-I  > oeil droit "@"
+#C-II > cadre liste collection
+----------------------------------------------------------------------------------->
+&lt;div id="oeil-mail" class="t-1s">
+&lt;!--  contenu #C-I  ---------------------------->
+	&lt;div id="oeil-mail-ouvert" class="t-05s" 
+	onclick="document.getElementById('mail').id='tirlalangue'" 
+	onmouseover="document.getElementById('oeil-mail-ouvert').style=
+		'background-color:lime'" 
+	onmouseleave="document.getElementById('oeil-mail-ouvert').style=
+		'background-color:none'">
+		&lt;h1>@&lt;/h1>
+	&lt;/div>
+&lt;!--  contenu #C-II  ---------------------------->
+	&lt;div id="divliste-off" class="t-1s">
+		&lt;div>
+&lt;!--------------------------->
+&lt;p id="intro">
+	Bonjour et bienvenue sur le site de Jo Balcony
+	&lt;a id="apropos" href="a_propos.html" target="framax">(qui ça ?)&lt;/a>, 
+	vous trouverez ici une collection d'idées ou de réalisations 
+	plus ou moins abouties mais présentées sans hiérarchie sinon chronologique.
+	Pour les découvrir vous pouvez cliquer sur les titres ci-dessous.
+&lt;/p>
+&lt;!--------------------------->
+&lt;a href="21-01_BON2021.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		BON 2021			
+	&lt;/p>
+&lt;/a>
+&lt;a href="20-10_open_space_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Open Space Carton
+	&lt;/p>
+&lt;/a>
+&lt;a href="20-09_tabouret_monoxyle.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Tabouret monoxyle 
+	&lt;/p>
+&lt;/a>
+&lt;a href="20-08_abat_jour_de_survie.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Abat-jour de survie
+	&lt;/p>
+&lt;/a>
+&lt;a href="20-04_fagotou.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Fagotou - Édition numérique
+	&lt;/p>
+&lt;/a>
+&lt;a href="20-04_pokezine.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Pokézine / système de feuilletage en gif animé
+	&lt;/p>
+&lt;/a>
+&lt;a href="20-01_BON2020.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		BON 2020
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-10_poignee_pain_sec.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Poignée pain sec
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-09_protege_livre_boite_cereales.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Protège livre en boîte de céréales
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-09_store_en_brindille.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Store en brindille
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-09_chausson_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Chaussons en carton
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-08_peigne_en_bois.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Peigne en bois
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-08_attelle_pour_semelle.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Attelle pour semelle
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-07_chalons_sous_eclairs.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Châlons-sur-Saône-sous-éclairs
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-05_systeme_affichage_mural_scotch_pince_a_linge.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Système d'affichage mural scotch-pince-à-linge
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-05_deux_longues_cuilleres.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Deux longues cuillères
+	&lt;/p>
+&lt;a href="19-05_https://jobalconytop.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		https://jobalcony.top
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-04_abat_jour_solitaire.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Abat-jour solitaire
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-04_deux_petites_cuilleres_en_bois.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Deux petites cuillères en bois
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-04_abat_jour_prise_terre.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Abat-jour prise terre
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-03_porte_plume_de_becasse.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Porte-plume de bécasse
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-03_couteau_en_bois.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Couteau en bois
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-03_couteau_a_beurre.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Couteau à beurre en bois
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-03_carnet-temps_A5-v2-17semaines.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Carnet-Temps A5-v2-17semaines
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-02_tretaux_pour_becherel.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Trétaux pour Bécherel
+	&lt;/p>
+&lt;/a>
+&lt;a href="19-01_BON2019.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Bon 2019
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-08_porte_bagages_velo_bois_ficelle.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Porte-bagages bois-ficelle
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-04_lampe_pixar_murale.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Lampe Pixar murale
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-04_table_basse_carree_en_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Table basse carrée en carton
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-04_etagere_haute_en_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Étagère haute en carton
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-04_desserte_a_chaussures_en_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Desserte à chaussures
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-04_meuble_miroir_tiroir.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Meuble miroir-tiroir
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-04_bureau_petit_en_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Petit bureau en carton
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-04_bureau_en_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Bureau en carton
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-04_banquette_tiroir_en_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Banquette en cagettes
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-02_cuillere_infinie.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Cuillère infinie
+	&lt;/p>
+&lt;/a>
+&lt;a href="18-01_BON2018.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Bon 2018
+	&lt;/p>
+&lt;/a>
+&lt;a href="17-10_lot_de_cuilleres_en_bois.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Lot de cuillères en bois
+	&lt;/p>
+&lt;/a>
+&lt;a href="17-09_systeme_affichage_mural_scotch_trombonne.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Système d'affichage mural scotch-trombonne
+	&lt;/p>
+&lt;/a>
+&lt;a href="17-09_systeme_affichage_mural_scotch_aimant.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Système d'affichage mural scotch-aimant
+	&lt;/p>
+&lt;/a>
+&lt;a href="17-06_gif_tournicube.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Gif TourniCube
+	&lt;/p>
+&lt;/a>
+&lt;a href="17-05_cocon_de_survie.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Cocon de survie
+	&lt;/p>
+&lt;/a>
+&lt;a href="17-03_gif_tarte_aux_pommes.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Gif tarte aux pommes
+	&lt;/p>
+&lt;/a>
+&lt;a href="17-02_porte_clefs_mural_en_carton.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Porte-clefs mural en carton
+	&lt;/p>
+&lt;/a>
+&lt;a href="17-02_poubelle_pied.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Poubelle pied
+	&lt;/p>
+&lt;/a>
+&lt;a href="15_le_son_produit_par_la_machine_qui_produit_du_son.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Le son produit par la machine qui produit du son
+	&lt;/p>
+&lt;/a>
+&lt;a href="15_etagere_suspendue.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Double étagère suspendue
+	&lt;/p>
+&lt;/a>
+&lt;a href="12_porte_brosse_a_dent_entaille.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Porte brosse-à-dent-à-entaille
+	&lt;/p>
+&lt;/a>
+&lt;a href="12_table_basse_deux_pots.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Table basse à deux-pots
+	&lt;/p>
+&lt;/a>
+&lt;a href="08_chaise_faisant_de_la_ville_son_pied.html" target="framax">
+	&lt;p class="lien" onclick="this.style='text-decoration:line-through'">
+		Chaise faisant de la ville son pied
+	&lt;/p>
+&lt;/a>
+&lt;!--------------------------->
+&lt;p id="merci">
+	MERCI !
+&lt;/p>
+
+		&lt;/div>
+	&lt;/div>
+&lt;/div>	
+&lt;!-------------------------------------------------------------------------------
+		 	#D : TITRE DYNAMIQUE
+		 	bouche-titre &lt;-> courtitre
+#D-I  > "bouche-titre" = bouche contant titre dynamique
+#D-II > "courtitre" = div rectangulaire contenant titre dynamique
+----------------------------------------------------------------------------------->
+&lt;div id="bouche-titre" class="t-1s">
+&lt;!-- 
+depuis le mode galerie, cliker sur #D-II "courtitre" 
+rebascule vers la disposition smiley d'accueil 
+-->
+	&lt;a onclick="document.getElementById('fondtainer').id='contetener',
+	document.getElementById('courtitre').id='bouche-titre',
+	document.getElementById('cadre-liste').id='oeil-mail',
+	document.getElementById('cadre-visu').id='oeil-col',
+	document.getElementById('divimage-on').id='divimage-off',
+	document.getElementById('divliste-on').id='divliste-off',
+	document.getElementById('oeil-mail-ferme').id='oeil-mail-ouvert',
+	document.getElementById('oeil-col-ferme').id='oeil-col-ouvert',
+	document.getElementById('oeil-col-ouvert').style='background-color: none',
+	document.getElementById('frame').src=''">
+&lt;!-- tout le bordel pour faire bouger les mots du titre 
+(mais le vrai bordel est dans le css) -->
+		&lt;div class="messagedefilant">
+			&lt;div data-text="BALCONY">
+				&lt;span>BALCONY&lt;/span>
+			&lt;/div>
+			&lt;div id="vertical-jo">
+				&lt;p id="horizontal-jo">JO&lt;/p>
+			&lt;/div>			
+		&lt;/div>
+		&lt;div id="horizontal-balcony">
+			&lt;p>BALCONY&lt;/p>
+		&lt;/div>
+	&lt;/a>
+&lt;/div>
+&lt;!-------------------------------------------------------------------------------
+		 	#E : LANGUE CONTACT COURRIEL
+#E > s'ettire et affiche @mail onCLIK sur #C = "oeil-mail"
+----------------------------------------------------------------------------------->
+&lt;div id="mail" class="t-05s">
+	&lt;h2>
+		&lt;!-- href="mailto:adresse@mail.fr?subject=blabla&body=blabla"-->
+		&lt;a href="mailto:info@jobalcony.top
+			?subject=Pour moi le design c'est ...">INFO@JOBALCONY.TOP&lt;/a>
+	&lt;/h2>
+&lt;/div>
+
+	&lt;/div>
+&lt;/body>
+
+&lt;/html>
+
+&lt;!--
+LISTE DE TRUCS QUE J'AIMERAIS FAIRE PLUS TARD
+> faire un curseur "pointeur" propre au site.
+> envoyer un lien vers le code source de cette page directe sur le net.
+> rassembler les textes dans un fichiers plutôt que dans le html.
+> revoir le texte apropos
+> proposer une image à l'ouverture de la galerie
+-->
+
+			</code></pre>
+		</div>
+	</body>
+</html>

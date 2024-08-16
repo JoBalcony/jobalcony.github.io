@@ -1,0 +1,619 @@
+/* --------------------------------------------------------------------------------------
+
+LE SITE DISPOSE DE DEUX ÉTATS :
+
+LA DISPOSITION D'ACCUEIL PRÉSENTE UN SMILEY :
+	> (I)  - ÉTAT ACCUEIL = SMILEY D'ACCUEIL
+
+PUIS LA DISPOSITION GALERIE QUI SE DÉPLOIE SUR CLIK AU BON ENDROIT :
+	> (II) - ÉTAT GALERIE
+
+CI DESSOUS LES PROPRIÉTÉS DE STYLE SONT ORGANISÉES SELON CES ETATS,
+TOUTES LES DIVISIONS SONT DÉFINIES SELON L'ÉTAT D'ACCUEIL
+PUIS ELLES LE SONT DE NOUVEAU AU SEIN DE L'ÉTAT GALERIE.
+
+---------------------------------------------------------------------------------------*/
+
+body{
+	background-color: grey;
+}
+
+/* --------------------------------------------------------------------------------------
+		(I)
+		(I)		LE MODE ACCUEIL = LE GROS SMILEY D'ACCUEIL
+		(I)
+---------------------------------------------------------------------------------------*/
+
+/* -------------------------------------------------------------
+	#A-I : contetener <-> fondtainer
+	> "contetener" devient "fondtainer" si clik sur #B-I
+--------------------------------------------------------------*/
+#contetener {
+	width: 80%;
+	height: 90%;
+	margin: auto;
+	top:2%;
+	left: 2%;
+	right: 2%;
+	bottom: 2%;
+	border-radius: 50%;
+	overflow: hidden;
+	/*background-color:black;*/
+	position: absolute;
+	border-style: solid;
+	border-color: black;
+	background-color: yellow;
+}
+
+/* --------------------------------------------------------------
+	#B-I : oeil-col
+> contient "oeil-col-ouvert" (& "divimage-off")
+> si clik sur #B-I :
+	"oeil-col" devient "cadre-visu"
+	"oeil-col-ouvert" devient "~ferme"
+	(& "divimage-off" devient "~on")
+---------------------------------------------------------------*/
+#oeil-col {
+	position: absolute;
+	width:15%;
+	height:20%;
+	top:20%;
+	margin-left: 23%;
+	background-color: green;
+	border-style: solid;
+	border-color: black;
+	border-radius: 50%;
+	overflow: hidden;
+}
+#oeil-col-ouvert {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%;
+	color: pink;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+#oeil-col-ferme {
+	/*position: absolute;
+	color: yellow;
+	font-weight: bold;
+	left: 40%;*/
+	display: none;
+}
+
+/* --------------------------------------------------------------
+	#C-I : oeil-mail
+> contient "oeil-mail-ouvert" (& "divliste-off")
+> si clik sur #B-I :
+	"oeil-mail" devient "cadre-liste"
+	"oeil-mail-ouvert" devient "~ferme"
+	(& "divliste-off" devient "~on")
+---------------------------------------------------------------*/
+#oeil-mail {
+	position: absolute;
+	width:15%;
+	height: 20%;
+	top:20%;
+	left: 57%;
+	background-color: green;
+	border-style: solid;
+	border-color: black;
+	border-radius: 50%;
+	overflow: hidden;
+	cursor: pointer;
+}
+#oeil-mail-ouvert {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%;
+	color: pink;
+	font-weight: bold;
+	text-align: center;
+}
+#oeil-mail-ferme {
+	/*position: absolute;
+	color: lightgrey;
+	font-weight: bold;
+	left: 40%;*/
+	display: none;
+}
+
+/* --------------------------------------------------------------
+	#D-I : bouche-titre <-> courtitre
+> "bouche-titre" devient "courtitre" si clik sur #B-I
+> (le détail de la mécanique défilante à la fin)
+--------------------------------------------------------------*/
+#bouche-titre {
+	width:80%;
+	height:15%;
+	top:55%;
+	left: 10%;
+	position: relative;
+	border-style: solid;
+	border-color: black;
+	background-color: grey;
+	overflow: hidden;
+	border-radius: 0% 0% 100% 100%;
+}
+
+/* --------------------------------------------------------------
+	#E-I  : mail <-> tirlalangue
+> planquée par défaut, s'étire s'affichant si clik sur #C-I
+---------------------------------------------------------------*/
+#mail {	
+	position: absolute;
+	width:40%;
+/*et oui la div est toujours là mais elles est toute plate...*/
+	height:0%;
+	top:57%;
+	left: 30%;
+	border-radius: 5% 5% 50% 50%;
+	background-color: pink;
+	overflow: hidden;
+	font-size: 0.6rem;
+	color: yellow;
+	text-align: center;
+}
+#tirlalangue {	
+	position: absolute;
+	width:40%;
+	height:5%;
+	top:57%;
+	left: 30%;
+	padding-bottom: 6%;
+	border-radius: 5% 5% 50% 50%;
+	background-color: red;
+	overflow: hidden;
+	padding-top: 9%;
+	font-size: 0.6rem;
+	color: yellow;
+	text-align: center;
+}
+
+/* --------------------------------------------------------------------------------------
+		INTERMÈDE :
+les fonctions permettant la transition entre accueil et galerie :
+---------------------------------------------------------------------------------------*/
+.t-2s {
+    -webkit-transition-property: width height background-color font-size left top color;
+    -webkit-transition-duration: 2s;
+    -webkit-transition-timing-function: linear;
+    transition-property: width height background-color font-size left top color;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+}
+.t-1s{
+	-webkit-transition-property: width height background-color font-size left top color;
+    -webkit-transition-duration: 1s;
+    -webkit-transition-timing-function: linear;
+    transition-property: width height background-color font-size left top color;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+}
+.t-05s{
+	-webkit-transition-property: width height background-color font-size left top color;
+    -webkit-transition-duration: 0.2s;
+    -webkit-transition-timing-function: linear;
+    transition-property: width height background-color font-size left top color;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+/* --------------------------------------------------------------------------------------
+(II)	(II)
+(II)	(II)	LE MODE GALERIE = LES BLOCS LISTE ET GALERIE
+(II)	(II)
+---------------------------------------------------------------------------------------*/
+
+/* -------------------------------------------------------------
+	#A-II : fondtainer <-> contetener
+> "fondtainer" devient "contetener" si clik sur #D-II
+--------------------------------------------------------------*/
+#fondtainer {
+	width: 94%;
+	height: 94%;
+	margin: auto;
+	top:2%;
+	left: 2%;
+	right: 2%;
+	bottom: 2%;
+	overflow: hidden;
+	position: absolute;
+	border-style: solid;
+	border-color: lightgrey;
+	background-color: lightgrey;
+}
+
+/* --------------------------------------------------------------
+	#B-II  : cadre-visu
+> contient "divimage-on" (& "oeil-col-ferme")
+> si clik sur #D-II :
+	"cadre-visu" devient "oeil-col"
+	"divimage-on" devient "~off" 
+	("oeil-col-ferme" devient "~ouvert")
+---------------------------------------------------------------*/
+#cadre-visu {
+	position: absolute;
+	width:50%;
+	height:94%;
+	top:2%;
+	margin-left: 48%;
+	overflow: hidden;
+	background-color: grey;
+}
+#divimage-on {
+	width:100%;
+	height:100%;
+	margin: 0 auto;
+	overflow: none;
+	border-style: none;
+}
+#divimage-off {
+	width:0%;
+	height:0%;
+	margin: 1% auto;
+	overflow: auto;
+	border-style: none;
+}
+/*#description {
+	position: relative;
+	border-width: 20%;
+	margin: 5% 10% 5% 10%;
+	width: 70%
+}*/
+#frame{
+	width: 100%;
+	height: 100%;
+	border-style: none;
+}
+/*-------------------------------------------------
+Propriétés de styles des pages chargées dans framax
+-------------------------------------------------*/
+.texte {
+	position: relative;
+	/*border-width: 20%;*/
+	width: 88%;
+	margin: 2% 5% 3% 5%;
+	padding: 1%;
+	font-family: sans-serif;
+	font-size: 1em;
+	background: lightgrey;
+}
+.texte-sml {
+	position: relative;
+	/*border-width: 20%;*/
+	width: 88%;
+	margin: -2% 5% 3% 5%;
+	padding: 1%;
+	font-family: sans-serif;
+	font-size: 0.8em;
+	background: lightgrey;
+}
+.texte-mat {
+	position: relative;
+	/*border-width: 20%;*/
+	width: 88%;
+	margin: -3% 5% 3% 5%;
+	padding: 1%;
+	font-family: sans-serif;
+	font-size: 0.7em;
+}
+pre {
+	position: relative;
+	/*border-width: 20%;*/
+	width: 88%;
+	margin: -2% 5% 3% 5%;
+	padding: 1%;
+	font-family: sans-serif;
+	font-size: 0.8em;
+	overflow: auto;
+	color: white;
+	background: black;
+}
+img {
+	/*position: relative;*/
+	/*border-width: 20%;*/
+	width: 100%;
+	margin: 0% auto 3% auto;
+	display: block;
+	/*margin: 0 auto;*/
+	/*max-width: 100%;*/
+	/*object-position: center;*/
+	/*float: left;*/
+	/*object-fit: fill;*/
+	/*border-style: solid;*/
+	/*border-color: black;*/
+	max-width: 100%;
+}
+.image {
+	position: relative;
+	/*border-width: 20%;*/
+	/*margin: 0% 10% 3% 10%;*/
+	margin: auto;
+	/*align-self: center;*/
+	width: 80%;
+	/*border-style: solid;*/
+	/*border-color: red;*/
+}
+.pdf {
+	/*border-width: 20%;*/
+	margin: 0% 5% 3% 5%;
+	width: 90%;
+	height: 1000px;
+}
+#redirection {
+	position: relative;
+	width: 90%;
+	margin: -2% 5% 3% 5%;
+	text-align: center;
+	color: pink;
+	background: lime;
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 1em;
+}
+#signature {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+	background: lime;
+	font-family: sans-serif;
+	font-size: 1em;
+}
+
+/* --------------------------------------------------------------
+	#C-II  : cadre-liste
+> contient "divliste-on" (& "oeil-mail-ferme")
+> si clik sur #D-II
+	"cadre-liste" devient "oeil-mail"
+	"divliste-on" devient "~off"
+	(& "oeil-mail-ferme" devient "~ouvert")
+---------------------------------------------------------------*/
+#cadre-liste{
+	position: absolute;
+	width:45%;
+	height:76%;
+	top:20%;
+	left: 1%;
+	overflow: hidden;
+/*	display: flex;
+	justify-content: center;*/
+	background-color: lightgrey;
+	/*text-indent: 2em;*/
+/*	border-style: solid;
+	border-width:1%;
+	border-color: green;*/
+}
+#divliste-on {
+	width:98%;
+	height:97%;
+	margin: 1% 1%;
+	font-family: sans-serif;
+	font-size: 1em;
+	overflow: auto;
+	/*border-style: solid;
+	border-color: red;*/
+}
+#divliste-off {
+	width:0%;
+	height:0%;
+	margin: 2% auto;
+	overflow: auto;
+}
+/*-----texte introduction à la liste-----*/
+#intro {
+	position: relative;
+	width: 98%;
+	background: lightgrey;
+	text-align: justify;
+	margin: 0% 0% 1.5% 0%;
+	padding:0% 1% 0% 1%; 
+}
+/*-----lien vers page "apropos"-----*/
+#apropos {
+	background: pink;
+}
+/*-----style des divs liens vers projets-----*/
+.lien {
+	position: relative;
+	width: 97%;
+	background: pink;
+	color: black;
+	/*cursor: pointer;*/
+	margin: 0% 0% 1.5% 0%;
+	padding-left: 2%;
+}
+/*mouse over div*/
+.lien:hover {
+    text-indent: 1.5%;
+	background-color: yellow;
+}
+.lien:active {
+	color: hotpink;
+}
+/*-----formatage des liens <a>-----*/
+a#apropos:hover {
+	color:black;
+}
+a[href*="html"] {
+    color: black;
+}
+a[href*="html"]:link {
+	text-decoration-line: none;
+}
+a[href*="html"]:hover {
+    font-weight: bold;
+    color: yellow;
+}
+a[href*="html"]:active {
+    color: hotpink;
+}
+#merci {
+	position: relative;
+	width: 97%;
+	text-align: center;
+	font-weight: bold;
+	background: lime;
+	color: pink;
+	/*cursor: pointer;*/
+	margin: 0% 0% 1.5% 0%;
+	padding-left: 2%; 
+}
+
+/* --------------------------------------------------------------
+	#D-II : courtitre <-> bouche-titre
+> "courtitre" devient "bouche-titre" si clik sur #D-II
+> (le détail de la mécanique défilante à la fin)
+--------------------------------------------------------------*/
+#courtitre {
+	width:45%;
+	height:15%;
+	top:2%;
+	left: 1%;
+	position: relative;
+	background-color: yellow;
+	overflow: hidden;
+	cursor: pointer;
+}
+#courtitre:hover {
+	background-color: powderblue;
+}
+
+/* --------------------------------------------------------------
+	LES MAGOUILLES POUR LE TITRE DÉFILANT
+		cf TITRES : #D-I et #D-II
+	trois méthodes plus ou moins utilisées
+---------------------------------------------------------------*/
+
+/* Bandeau titre déroulant méthode trouvée sur codepen*/
+.messagedefilant {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	top: -7%;
+	font-weight: bold;
+	/*overflow: hidden;*/
+	display: block;
+}
+
+.messagedefilant div {
+	position: absolute;
+	min-width: 100%; /* minimum la largeur du conteneur */ 
+}
+
+.messagedefilant div span,
+.messagedefilant div:after {
+	position: relative;
+	display: inline-block;
+	font-size: 5rem;
+	font-family: sans-serif;
+	color: pink;
+	/*font-weight: bold;*/
+	white-space: nowrap;
+}
+
+.messagedefilant div span {
+	animation-duration: 11s;
+	animation-name: defilement;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.messagedefilant div:after {
+	position: absolute;
+	top: 0; left: 0;
+	content: attr(data-text);
+	/*animation: defilement2 10s inline linear;*/
+	animation-duration: 11s;
+	animation-name: defilement2;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+@keyframes defilement {
+	0% {margin-left: 0;}
+	100% {margin-left: -100%;}
+}
+
+@keyframes defilement2 {
+	0% {margin-left: 100%;}
+	100% {margin-left: 0%;}
+}
+
+/* Bandeau titre gauche droite issue d'un exemple devdocs <p>*/
+#horizontal-balcony {
+  position: absolute;
+  margin: 0 auto;
+  top: -75%;
+  font-family: sans-serif;
+  font-size: 4em;
+  color: red;
+/*border-style: solid;
+  border-color: red;  */
+  animation-duration: 7s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  }
+
+  #horizontal-jo {
+  position: relative;
+  margin: 0 auto;
+  font-family: sans-serif;
+  font-size: 4em;
+  color: lime;
+/*  border-style: solid;
+  border-color: red;*/
+  animation-duration: 4s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  }
+
+  #vertical-jo {
+  position: absolute;
+  top: 1%;
+/*  border-style: solid;
+  border-color: black;*/
+  animation-duration: 0.7s;
+  animation-name: upandown;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  }
+
+@keyframes slidein {
+  from {
+    margin-left: 95%;
+    width: 20%; 
+  }
+
+  to {
+    margin-left: -5%;
+    width: 20%;
+  }
+}
+
+/*  50% {
+  font-size: 300%;
+  margin-left: 50%;
+  width: 150%;
+}*/
+
+@keyframes upandown {
+  from {
+    margin-top: -8%;
+  }
+  to {
+    margin-top: 8%;
+  }
+}
